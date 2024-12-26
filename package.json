@@ -1,0 +1,26 @@
+{
+    "name": "autre-tunisie",
+    "version": "1.0.0",
+    "description": "Autre Tunisie | ExpressJS + Next.js 15 using tRPC",
+    "main": "index.js",
+    "scripts": {
+      "backend": "npm run dev -w backend",
+      "frontend": "npm run dev -w frontend",
+      "admin": "npm run dev -w admin",
+      "db:generate": "npm run db:generate -w backend",
+      "db:migrate": "npm run db:migrate -w backend",
+      "db:studio": "npm run db:studio -w backend",
+      "db:seed": "npm run db:seed -w backend"
+    },
+    "private": true,
+    "workspaces": [
+      "apps/*"
+    ],
+    "keywords": [
+      "ExpressJS",
+      "Next.js 15",
+      "tRPC",
+      "typescript"
+    ]
+}
+  

@@ -1,0 +1,37 @@
+name: Upload to S3 🪣
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  upload-to-s3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request branch 📦
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 18.x 📦
+        uses: actions/setup-node@v4.1.0
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies & Build 📦
+        run: |
+          npm install && npm run build
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: eu-west-3
+
+      - name: Upload folder to S3
+        run: |
+          aws s3 sync dist s3://converty-bucket-v2/super --delete
+
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id EIWZPRND3UCOH --paths "/super/*"

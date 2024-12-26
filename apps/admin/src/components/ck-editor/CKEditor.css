@@ -1,0 +1,19 @@
+.ck-editor {
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+}
+.ck-editor .ck-editor__top {
+  flex-shrink: 1;
+}
+.ck-editor .ck-editor__main {
+  flex-grow: 1;
+  position: relative;
+}
+.ck-editor .ck-editor__main .ck-editor__editable, .ck-editor .ck-editor__main .ck-source-editing-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

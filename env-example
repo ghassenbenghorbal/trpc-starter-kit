@@ -1,0 +1,7 @@
+# Postgres Database
+DB_USER=postgres
+DB_HOST=localhost
+DB_PASSWORD=postgres
+DB_DATABASE=autre_tunisie
+DB_PORT=5432
+DB_URL=postgres://postgres:postgres@localhost:5432/autre_tunisie

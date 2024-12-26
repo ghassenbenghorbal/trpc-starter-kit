@@ -1,0 +1,25 @@
+name: Office Workflow 🏢
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    office:
+        runs-on: office
+        steps:
+            - name: Checkout pull request branch
+              uses: actions/checkout@v4
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Build
+              run: npm run build
+
+            - name: Remove old super-frontend directory
+              run: rm -rf /var/www/super-frontend
+
+            - name: Move dist to /var/www
+              run: mv dist /var/www/super-frontend

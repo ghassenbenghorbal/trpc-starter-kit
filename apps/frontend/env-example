@@ -1,0 +1,3 @@
+NGINX_URL=http://localhost:8000
+NEXTAUTH_SECRET=5+TsvK/qEbKgFGFHGFwxGaPIw7ADnzVDlWixw7A8lZY=
+NEXTAUTH_URL=http://localhost:3000
